@@ -63,7 +63,7 @@ under the MIT license.
 
 Chrome, Edge, Brave and other Chromium browsers:
 
-1. Download the zip from the Releases page and unzip it.
+1. Download the zip from the [Releases page](../../releases) and unzip it.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and pick the `extension` folder.
 4. Open LibreChat and reload the tab once.
@@ -96,7 +96,7 @@ has not yet been tried on an unpatched one. Where a patched build offers a
 shortcut, the extension falls back to the stock way: branch jumps click the
 `< n/m >` arrows one step at a time, and the ✎ next to a skill opens the
 Skills page in a new tab. If something does not work on your install, please
-open an issue with your LibreChat version.
+[open an issue](../../issues) with your LibreChat version.
 
 ## Privacy
 
