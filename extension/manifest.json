@@ -1,0 +1,77 @@
+{
+  "manifest_version": 3,
+  "name": "QoL for LibreChat",
+  "version": "0.19.0",
+  "description": "Unofficial quality-of-life tools for LibreChat: branch tree, bookmarks, Alt+Click edit, theme editor, skill styles, prefill.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "QoL for LibreChat",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:3080/*",
+        "http://127.0.0.1:3080/*"
+      ],
+      "js": [
+        "content/config.js",
+        "content/deeplink.js",
+        "content/theme-early.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "http://localhost:3080/*",
+        "http://127.0.0.1:3080/*"
+      ],
+      "js": [
+        "content/adapter.js",
+        "content/storage.js",
+        "content/api.js",
+        "content/navigate.js",
+        "content/ui.js",
+        "content/branch-keys.js",
+        "content/edit-at-click.js",
+        "content/st-export.js",
+        "content/tree-layout.js",
+        "content/tree-view.js",
+        "content/hotkeys.js",
+        "content/skill-calls.js",
+        "content/theme.js",
+        "content/main.js",
+        "content/styles/frontmatter.js",
+        "content/styles/api.js",
+        "content/styles/zip.js",
+        "content/styles/export.js",
+        "content/styles/presets.js",
+        "content/styles/ui.js",
+        "content/styles/prefill.js",
+        "content/styles/prompts.js",
+        "content/styles/pills.js"
+      ],
+      "css": [
+        "content/page-styles.css",
+        "content/styles/page-styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

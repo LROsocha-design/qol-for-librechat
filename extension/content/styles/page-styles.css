@@ -1,0 +1,109 @@
+/* Styles that must live in the PAGE (the popover has its own shadow-root CSS).
+   The pill borrows LibreChat's badge utility classes for colours, border and
+   shadow; the box layout is pinned down here so a Tailwind ordering quirk
+   (`px-4` beating `p-2`) can't squash the icon. */
+
+.lcss-wrap,
+.lcpf-wrap,
+.lccp-wrap,
+.lcpr-wrap {
+  display: inline-flex;
+}
+
+#lcss-pill,
+#lcpf-pill,
+#lccp-pill,
+#lcpr-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px 0 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#lcss-pill > svg,
+#lcpf-pill > svg,
+#lccp-pill > svg,
+#lcpr-pill > svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+#lcss-pill .lcss-label,
+#lcpf-pill .lcss-label,
+#lccp-pill .lcss-label,
+#lcpr-pill .lcss-label {
+  display: inline;
+}
+
+#lcss-pill .lcss-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  background: var(--brand-purple, #ab68ff);
+  color: #fff;
+  pointer-events: none;
+}
+
+#lcss-pill .lcss-count[hidden] {
+  display: none;
+}
+
+/* Fallback when no badge row exists (unknown layout). */
+#lcss-pill.lcss-floating {
+  position: fixed;
+  right: 16px;
+  bottom: 96px;
+  z-index: 9000;
+}
+
+/* Prefill pill: a small dot while it is on, and a shake when a send holding
+   only the prefill was swallowed. */
+#lcpf-pill .lcpf-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brand-purple, #ab68ff);
+  pointer-events: none;
+}
+
+#lcpf-pill .lcpf-dot[hidden] {
+  display: none;
+}
+
+#lcpf-pill.lcpf-flash {
+  animation: lcpf-shake 0.45s ease-in-out;
+}
+
+@keyframes lcpf-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+#lcpf-pill.lcpf-floating {
+  position: fixed;
+  right: 16px;
+  bottom: 140px;
+  z-index: 9000;
+}
+
+#lcpr-pill.lcpr-floating {
+  position: fixed;
+  right: 16px;
+  bottom: 228px;
+  z-index: 9000;
+}

@@ -1,0 +1,105 @@
+/* Styles that must live in the PAGE (not the shadow root):
+   the per-message bookmark button and the jump-target highlight. */
+
+/* Bookmark button in each message's action row.
+   Deliberately does NOT reuse LibreChat's tailwind visibility classes —
+   if those change, this still works: dim by default, full on hover. */
+.lcbm-add {
+  opacity: 0.25;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+  filter: grayscale(1);
+}
+.message-render:hover .lcbm-add,
+.lcbm-add:focus-visible {
+  opacity: 1;
+}
+.lcbm-add:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+.lcbm-add.lcbm-marked {
+  opacity: 0.95;
+  filter: none;
+}
+
+/* Branch-mark button (content/branch-keys.js) — same behavior as the bookmark
+   button, but a text glyph, so it is tinted with color instead of a filter. */
+.lcbm-mark {
+  opacity: 0.25;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+.message-render:hover .lcbm-mark,
+.lcbm-mark:focus-visible {
+  opacity: 1;
+}
+.lcbm-mark:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+.lcbm-mark.lcbm-mark-on {
+  opacity: 1;
+  color: #c9a227;
+}
+
+/* Prompt button (content/prompt-link.js) — same dim-until-hover behavior as
+   the bookmark button; an emoji, so greyed with a filter. */
+.lcbm-prompt {
+  opacity: 0.25;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+  filter: grayscale(1);
+}
+.message-render:hover .lcbm-prompt,
+.lcbm-prompt:focus-visible {
+  opacity: 1;
+  filter: none;
+}
+.lcbm-prompt:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+
+/* The marked turn: a gold bar down its left edge. box-shadow on purpose — it
+   cannot shift layout and does not fight the jump flash's outline. */
+.message-render.lcbm-branch-marked {
+  box-shadow: -3px 0 0 0 #c9a227;
+}
+
+/* Flash highlight on the message a jump lands on. */
+@keyframes lcbm-flash-kf {
+  0%   { outline-color: rgba(201, 162, 39, 0.95); background-color: rgba(201, 162, 39, 0.14); }
+  70%  { outline-color: rgba(201, 162, 39, 0.55); background-color: rgba(201, 162, 39, 0.07); }
+  100% { outline-color: transparent; background-color: transparent; }
+}
+.message-render.lcbm-flash {
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  border-radius: 8px;
+  animation: lcbm-flash-kf 2.5s ease-out forwards;
+}
+
+/* Branch tree panel (content/tree-view.js): while docked it pushes the whole
+   app aside instead of covering the chat. !important and the html.class
+   prefix so it also beats the scrollbar-gap margin react-remove-scroll puts
+   on body[data-scroll-locked] while a LibreChat dialog is open. */
+html.lcbm-tree-docked body {
+  margin-right: var(--lcbm-tree-w, 0px) !important;
+}
