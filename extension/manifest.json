@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "QoL for LibreChat",
-  "version": "0.19.0",
+  "version": "0.21.0",
   "description": "Unofficial quality-of-life tools for LibreChat: branch tree, bookmarks, Alt+Click edit, theme editor, skill styles, prefill.",
   "icons": {
     "16": "icons/icon16.png",
@@ -55,6 +55,8 @@
         "content/tree-view.js",
         "content/hotkeys.js",
         "content/skill-calls.js",
+        "content/gallery.js",
+        "content/chat-finder.js",
         "content/theme.js",
         "content/main.js",
         "content/styles/frontmatter.js",

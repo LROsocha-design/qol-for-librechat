@@ -128,5 +128,5 @@
     return path;
   }
 
-  LCBM.api = { refreshToken, fetchMessages, buildIndex, computePath };
+  LCBM.api = { refreshToken, authedFetch, fetchMessages, buildIndex, computePath };
 })();

@@ -12,7 +12,7 @@
  */
 const BUILT_IN = ["http://localhost:3080/*", "http://127.0.0.1:3080/*"];
 const START_JS = ["content/config.js", "content/deeplink.js", "content/theme-early.js"];
-const IDLE_JS = ["content/adapter.js", "content/storage.js", "content/api.js", "content/navigate.js", "content/ui.js", "content/branch-keys.js", "content/edit-at-click.js", "content/st-export.js", "content/tree-layout.js", "content/tree-view.js", "content/hotkeys.js", "content/skill-calls.js", "content/theme.js", "content/main.js", "content/styles/frontmatter.js", "content/styles/api.js", "content/styles/zip.js", "content/styles/export.js", "content/styles/presets.js", "content/styles/ui.js", "content/styles/prefill.js", "content/styles/prompts.js", "content/styles/pills.js"];
+const IDLE_JS = ["content/adapter.js", "content/storage.js", "content/api.js", "content/navigate.js", "content/ui.js", "content/branch-keys.js", "content/edit-at-click.js", "content/st-export.js", "content/tree-layout.js", "content/tree-view.js", "content/hotkeys.js", "content/skill-calls.js", "content/gallery.js", "content/chat-finder.js", "content/theme.js", "content/main.js", "content/styles/frontmatter.js", "content/styles/api.js", "content/styles/zip.js", "content/styles/export.js", "content/styles/presets.js", "content/styles/ui.js", "content/styles/prefill.js", "content/styles/prompts.js", "content/styles/pills.js"];
 const IDLE_CSS = ["content/page-styles.css", "content/styles/page-styles.css"];
 
 let queue = Promise.resolve();

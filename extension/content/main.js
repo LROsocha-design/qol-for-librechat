@@ -25,6 +25,8 @@
   function onDomChanged() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
+      /** The sidebar is on every page, not only on chat pages. */
+      if (LCBM.chatFinder) LCBM.chatFinder.inject();
       if (adapter.isChatPage()) {
         injectAll();
         skillCalls.onDomChanged();
@@ -58,6 +60,8 @@
     treeView.init();
     hotkeys.init();
     skillCalls.init();
+    if (LCBM.gallery) LCBM.gallery.init();
+    if (LCBM.chatFinder) LCBM.chatFinder.init();
     theme.boot();
     ui.updateBadge();
 

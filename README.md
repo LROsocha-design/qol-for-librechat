@@ -27,6 +27,11 @@ under the MIT license.
 - **Flip a turn's branches with the arrow keys**: mark a message (Alt+M, or
   the ⇆ in its button row), then ← and → switch between its versions.
   Shift+↑ and Shift+↓ move the mark, Esc removes it.
+- **Find a chat by name** (Ctrl+/): a search field at the top of the chat
+  list. Stock LibreChat shows its own sidebar search only when Meilisearch is
+  set up; without it there is no way to look a chat up by name. Type a few
+  words of the name, in any order, and pick from the list. When your
+  LibreChat has its own search field, the extension leaves it to that one.
 
 **Editing and reading**
 
@@ -38,6 +43,10 @@ under the MIT license.
   dark mode only.
 - **Skill tool calls**: a counter of how often the model loaded a skill by
   itself on the branch you are looking at, with a jump to each call.
+- **Generated images** (Alt+G, or the 🖼 button): every picture an image
+  tool made, from all chats, newest first, with a full-size view. Its
+  **Go to reply** button needs a LibreChat that records which reply made a
+  picture; stock LibreChat does not, so there the button stays greyed out.
 - **Hotkey list** (Alt+K): every key the extension adds.
 
 **In the message box**
